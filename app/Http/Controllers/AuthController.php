@@ -17,11 +17,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request) :JsonResponse{
         $response = $this->userService->login($request->validated());
-        return response()->json([
-            'success' => true,
-            'message' => 'Inicio de sesión exitoso',
-            'data' => $response
-        ], 200);
+        return response()->json($response, 200);
     }
     
     public function register(CreateUserRequest $request) :JsonResponse{
